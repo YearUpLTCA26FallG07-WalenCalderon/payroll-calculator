@@ -28,21 +28,26 @@ public class Main {
         System.out.println("Please enter your pay rate: ");
         float payRate = sc.nextFloat();
 
-        //What we need to figure out
+
+      //What we need to figure out
         //Gross Pay=(Regular Hours×Hourly Rate)+(Overtime Hours×Overtime Rate)+Bonuses/Commissions
         double grossPay =  payRate * workHours;
 
-        //output
-        System.out.println(name + " your  gross pay is: $" + grossPay);
 
 
         //bonus
-        if (){
+        if (workHours > 40){
+          float overtimeHours = workHours - 40;
+          float regularPay = 40 * payRate;
+          double overtimePay = overtimeHours * payRate * 1.5;
+          grossPay = regularPay + overtimePay;
 
-
-        }else {
-
+        } else {
+          grossPay = workHours * payRate;
         }
 
+      // Output
+      System.out.printf("%s, your gross pay is: $%.2f%n",
+              name, grossPay);
     }
 }
